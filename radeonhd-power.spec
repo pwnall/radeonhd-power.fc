@@ -6,9 +6,11 @@ Summary:	Configures the radeon open-source driver's power management
 Group:		User Interface/X Hardware Support
 License:	MIT
 URL:		https://github.com/pwnall/radeonhd-power
-Source0:	https://github.com/pwnall/radeonhd-power/tarball/radeonhd-power-v%{version}
+Source0:	https://github.com/pwnall/radeonhd-power/archive/radeonhd-power-v%{version}.tar.gz
 
-# BuildRequires:	
+BuildArch: noarch
+
+# BuildRequires:
 Requires:	systemd
 
 %description
@@ -16,9 +18,7 @@ radeonhd-power is a convenience script for writing to the sysfs
 files provided by the radeon open-source driver.
 
 %prep
-tar -xzf %{_sourcedir}/radeonhd-power-v%{version}
-mv pwnall-radeonhd-power-* %{name}-%{version}
-%setup -q -T -D -n %{name}-%{version}
+%setup -q -n radeonhd-power-radeonhd-power-v%{version}
 
 
 %build
@@ -38,5 +38,5 @@ make install DESTDIR=$RPM_BUILD_ROOT/usr
 
 
 %changelog
-* Sun May 6 2010 Victor Costan <victo@costan.us> - 1.0
+* Mon Mar 25 2013 Victor Costan <victo@costan.us> - 1.0
 - Initial release.
